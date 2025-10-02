@@ -1,0 +1,93 @@
+services:
+  # Frontend applications
+  sphyre-website:
+    build:
+      context: ./sphyre-website
+    ports:
+      - "3003:80"
+    container_name: sphyre-website
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - REACT_APP_API_URL=http://fortro-engine:3000
+
+  sphyre-app:
+    build:
+      context: ./sphyre-app
+    ports:
+      - "3004:3000"
+    container_name: sphyre-app
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=http://fortro-engine:3000
+
+  sphyre-verifier:
+    build:
+      context: ./sphyre-verifier
+    ports:
+      - "3001:3000"
+    container_name: sphyre-verifier
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=http://fortro-engine:3000
+
+  sphyre-issuers:
+    build:
+      context: ./sphyre-issuers
+    ports:
+      - "3002:80"
+    container_name: sphyre-issuers
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - REACT_APP_API_URL=http://fortro-engine:3000
+
+  # Backend service
+  fortro-engine:
+    build:
+      context: ./Fortro-Engine
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    container_name: fortro-engine
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+      - ipfs
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/fortro
+      - IPFS_API_URL=http://ipfs:5001
+      - ETHEREUM_RPC_URL=https://mainnet.base.org
+      - PORT=3000
+      - JWT_SECRET=${JWT_SECRET:-production_secret_key_change_me}
+      - JWT_EXPIRATION=86400
+      - ISSUER_DID=${ISSUER_DID:-did:example:123456789abcdefghi}
+      - ISSUER_PRIVATE_KEY=${ISSUER_PRIVATE_KEY:-0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef}
+      - CORS_ALLOWED_ORIGINS=http://sphyre-app:3000,http://sphyre-verifier:3000,http://sphyre-issuers:80,http://sphyre-website:80
+
+  # Dependencies
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  ipfs:
+    image: ipfs/kubo:latest
+    container_name: ipfs
+    restart: unless-stopped
+    ports:
+      - "4001:4001"
+      - "5001:5001"
+      - "8080:8080"
+    volumes:
+      - ipfs_data:/data/ipfs
+
+volumes:
+  mongodb_data:
+  ipfs_data:

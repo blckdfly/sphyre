@@ -1,0 +1,12 @@
+target
+.env
+logs
+Dockerfile
+docker-compose.yml
+.git
+.gitignore
+README.md
+.DS_Store
+*.rs.bk
+*.swp
+*.swo
