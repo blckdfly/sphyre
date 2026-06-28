@@ -1,0 +1,11 @@
+{
+  "network": "unknown",
+  "chainId": 84532,
+  "deployer": "0x8b31b47788ce18498369F7685ABaB9123B040e0c",
+  "timestamp": "2025-10-07T11:39:40.067Z",
+  "contracts": {
+    "MinimalForwarder": "0x1BDc051807Ee8A5a31510dc2bdbe3876f1ceE944",
+    "SSIRegistry": "0x838f7f3f1cae12A8143AE9Adec4510fC852f557B",
+    "SSIRegistryFactory": "0x8490B5d097791AB6950AC3454B04ae2c678e96e3"
+  }
+}

@@ -1,0 +1,131 @@
+/* Sphyre Issuers - Modern Minimalist Theme */
+/* Color Palette: #0005FF (Primary Blue), #090909 (Deep Black), #FFFFFF (Pure White) */
+/* NO other colors - strict minimalist palette */
+
+:root {
+  --primary: #0005FF;
+  --primary-dark: #0003CC;
+  --primary-light: #3337FF;
+  --black: #090909;
+  --black-light: #1a1a1a;
+  --white: #FFFFFF;
+  --gray: #f5f5f5;
+  --shadow-sm: 0 2px 4px rgba(9, 9, 9, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 5, 255, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 5, 255, 0.2);
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: var(--white);
+  color: var(--black);
+}
+
+/* Toast Animations */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+.animate-slide-out {
+  animation: slide-out 0.3s ease-out forwards;
+}
+
+/* Modern Button Styles - Minimalist */
+.btn-primary-modern {
+  background: var(--primary);
+  border: none;
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary-modern:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary-modern {
+  background: transparent;
+  border: 2px solid var(--black);
+  color: var(--black);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-modern:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* Card Effects - Minimalist */
+.card-glow {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(9, 9, 9, 0.1);
+}
+
+.card-glow:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+/* Smooth Transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Loading Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Fade Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}

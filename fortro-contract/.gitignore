@@ -1,0 +1,27 @@
+.DS_Store
+.idea/
+
+# Environment and local deployment secrets
+.env
+.env.*
+!.env.example
+hardhat/.env
+hardhat/.env.*
+!hardhat/.env.example
+
+# Dependencies
+node_modules/
+hardhat/node_modules/
+
+# Hardhat generated files
+hardhat/artifacts/
+hardhat/cache/
+hardhat/typechain-types/
+
+# Logs and temporary output
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+coverage/
+dist/

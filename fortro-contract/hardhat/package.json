@@ -1,0 +1,47 @@
+{
+  "name": "sphyre-contracts",
+  "version": "1.0.0",
+  "description": "Sphyre SSI Registry Smart Contracts with Meta-Transaction Support",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:forwarder:sepolia": "hardhat run scripts/deploy-forwarder.ts --network baseSepolia",
+    "deploy:registries:sepolia": "hardhat run scripts/deploy-registries.ts --network baseSepolia",
+    "admin:set:sepolia": "hardhat run scripts/set-forwarder-and-roles.ts --network baseSepolia",
+    "verify:sepolia": "hardhat run scripts/verify.ts --network baseSepolia",
+    "abi:export": "hardhat run scripts/export-abi.ts",
+    "clean": "hardhat clean"
+  },
+  "keywords": [
+    "ethereum",
+    "smart-contracts",
+    "ssi",
+    "meta-transactions",
+    "eip-2771"
+  ],
+  "author": "Sphyre Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@typechain/ethers-v5": "^10.1.0",
+    "@typechain/hardhat": "^6.1.6",
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.10.5",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.17.2",
+    "hardhat-gas-reporter": "^1.0.9",
+    "solidity-coverage": "^0.8.5",
+    "ts-node": "^10.9.2",
+    "typechain": "^8.3.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.6"
+  }
+}
