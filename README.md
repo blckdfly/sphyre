@@ -196,7 +196,7 @@ If this repository supports your research, please cite the associated paper once
 
 ```bibtex
 @misc{sphyre2026,
-  title        = {Sphyre: A Post-Quantum Self-Sovereign Identity System with Adaptive Consent and Zero-Knowledge Proofs},
+  title        = {A Post-Quantum Self-Sovereign Identity System with Adaptive Consent and Zero-Knowledge Proofs},
   author       = {Ziyaadaturrahman, Naufal and Prasetyo, Anang},
   year         = {2026},
   howpublished = {\url{https://github.com/blckdfly/sphyre}}
